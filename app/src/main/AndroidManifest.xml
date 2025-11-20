@@ -12,7 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APPGestionTareas">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.APPGestionTareas" />
+        <activity
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
