@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.database.ejemplos.DatabaseEjemplo;
 import com.example.appgestiontareas.ui.fragments.CalendarFragment;
 import com.example.appgestiontareas.ui.fragments.HomeFragment;
 import com.example.appgestiontareas.ui.fragments.SettingsFragment;
@@ -64,5 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+        DatabaseEjemplo.ejecutar(this);
     }
 }
