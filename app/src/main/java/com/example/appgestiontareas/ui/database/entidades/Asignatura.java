@@ -19,16 +19,16 @@ public class Asignatura {
 
     private int id_curso;
     private String nombre;
-    private int horas_semanales;
+    private int segundos_semanales;
 
     // Constructor vacío requerido por Room
     public Asignatura() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Asignatura(int id_curso, String nombre, int horas_semanales) {
+    public Asignatura(int id_curso, String nombre, int segundos_semanales) {
         this.id_curso = id_curso;
         this.nombre = nombre;
-        this.horas_semanales = horas_semanales;
+        this.segundos_semanales = segundos_semanales;
     }
 
     // Getters y setters
@@ -56,11 +56,11 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
-    public int getHoras_semanales() {
-        return horas_semanales;
+    public int getSegundos_semanales() {
+        return segundos_semanales;
     }
 
-    public void setHoras_semanales(int horas_semanales) {
-        this.horas_semanales = horas_semanales;
+    public void setSegundos_semanales(int segundos_semanales) {
+        this.segundos_semanales = segundos_semanales;
     }
 }

@@ -9,16 +9,16 @@ public class Curso {
     private int id;
 
     private String nombre;
-    private int horas_semanales_max;
+    private int segundos_semanales_max;
     private int max_examenes_semana;
 
     // Constructor vacío requerido por Room
     public Curso() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Curso(String nombre, int horas_semanales_max, int max_examenes_semana) {
+    public Curso(String nombre, int segundos_semanales_max, int max_examenes_semana) {
         this.nombre = nombre;
-        this.horas_semanales_max = horas_semanales_max;
+        this.segundos_semanales_max = segundos_semanales_max;
         this.max_examenes_semana = max_examenes_semana;
     }
 
@@ -39,12 +39,12 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public int getHoras_semanales_max() {
-        return horas_semanales_max;
+    public int getSegundos_semanales_max() {
+        return segundos_semanales_max;
     }
 
-    public void setHoras_semanales_max(int horas_semanales_max) {
-        this.horas_semanales_max = horas_semanales_max;
+    public void setSegundos_semanales_max(int segundos_semanales_max) {
+        this.segundos_semanales_max = segundos_semanales_max;
     }
 
     public int getMax_examenes_semana() {

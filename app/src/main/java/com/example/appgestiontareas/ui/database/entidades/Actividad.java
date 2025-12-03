@@ -29,7 +29,7 @@ public class Actividad {
 
     private String titulo;
     private String descripcion;
-    private int minutos_estimados;
+    private int segundos_estimados;
     private String fecha_entrega;
     private int peso_estimado;
     private int creado_por;
@@ -90,12 +90,12 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public int getMinutos_estimados() {
-        return minutos_estimados;
+    public int getSegundos_estimados() {
+        return segundos_estimados;
     }
 
-    public void setMinutos_estimados(int minutos_estimados) {
-        this.minutos_estimados = minutos_estimados;
+    public void setSegundos_estimados(int segundos_estimados) {
+        this.segundos_estimados = segundos_estimados;
     }
 
     public String getFecha_entrega() {

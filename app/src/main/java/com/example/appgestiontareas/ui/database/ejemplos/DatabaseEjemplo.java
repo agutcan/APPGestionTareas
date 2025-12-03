@@ -34,7 +34,7 @@ public class DatabaseEjemplo {
             // -----------------------------------------
             // 2) INSERTAR CURSO
             // -----------------------------------------
-            Curso curso = new Curso("Programación DAM", 20, 2);
+            Curso curso = new Curso("Programación DAM", 200000, 2);
             long cursoId = db.cursoDao().insert(curso);
             Log.d("DB_TEST", "Curso creado con ID: " + cursoId);
 
@@ -144,7 +144,7 @@ public class DatabaseEjemplo {
             List<Bienestar> bienestarList = db.bienestarDao().getAll();
             Log.d("DB_TEST", "-- ESTADO DE BIENESTAR --");
             for (Bienestar b : bienestarList) {
-                Log.d("DB_TEST", b.getEstado_animo() + ": " + b.getHoras_sueno() + "h sueño");
+                Log.d("DB_TEST", b.getEstado_animo() + ": " + b.getSegundos_sueno() + "h sueño");
             }
 
             Log.d("DB_TEST", "---- FIN DE PRUEBAS ----");

@@ -19,18 +19,18 @@ public class Bienestar {
     private int id_alumno;
     private String fecha;
     private String estado_animo;
-    private int horas_sueno;
+    private int segundos_sueno;
     private String notas;
 
     // Constructor vacío requerido por Room
     public Bienestar() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Bienestar(int id_alumno, String fecha, String estado_animo, int horas_sueno, String notas) {
+    public Bienestar(int id_alumno, String fecha, String estado_animo, int segundos_sueno, String notas) {
         this.id_alumno = id_alumno;
         this.fecha = fecha;
         this.estado_animo = estado_animo;
-        this.horas_sueno = horas_sueno;
+        this.segundos_sueno = segundos_sueno;
         this.notas = notas;
     }
 
@@ -67,12 +67,12 @@ public class Bienestar {
         this.estado_animo = estado_animo;
     }
 
-    public int getHoras_sueno() {
-        return horas_sueno;
+    public int getSegundos_sueno() {
+        return segundos_sueno;
     }
 
-    public void setHoras_sueno(int horas_sueno) {
-        this.horas_sueno = horas_sueno;
+    public void setSegundos_sueno(int segundos_sueno) {
+        this.segundos_sueno = segundos_sueno;
     }
 
     public String getNotas() {

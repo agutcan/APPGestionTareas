@@ -30,17 +30,17 @@ public class Planificacion {
     private int id_alumno;
 
     private String fecha_planificada;
-    private int minutos_planificados;
+    private int segundos_planificados;
 
     // Constructor vacío requerido por Room
     public Planificacion() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Planificacion(int id_alumno, int id_tarea, String fecha_planificada, int minutos_planificados) {
+    public Planificacion(int id_alumno, int id_tarea, String fecha_planificada, int segundos_planificados) {
         this.id_alumno = id_alumno;
         this.id_tarea = id_tarea;
         this.fecha_planificada = fecha_planificada;
-        this.minutos_planificados = minutos_planificados;
+        this.segundos_planificados = segundos_planificados;
     }
 
     // Getters y setters
@@ -77,11 +77,11 @@ public class Planificacion {
         this.fecha_planificada = fecha_planificada;
     }
 
-    public int getMinutos_planificados() {
-        return minutos_planificados;
+    public int getSegundos_planificados() {
+        return segundos_planificados;
     }
 
-    public void setMinutos_planificados(int minutos_planificados) {
-        this.minutos_planificados = minutos_planificados;
+    public void setSegundos_planificados(int segundos_planificados) {
+        this.segundos_planificados = segundos_planificados;
     }
 }

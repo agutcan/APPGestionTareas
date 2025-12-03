@@ -9,15 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
 import com.example.appgestiontareas.ui.database.AppDatabase;
 import com.example.appgestiontareas.ui.database.dao.UsuarioDao;
+import com.example.appgestiontareas.ui.database.entidades.Actividad;
 import com.example.appgestiontareas.ui.database.entidades.Usuario;
 
-public class HomeFragment extends Fragment {
+import java.util.List;
 
-    TextView texto;
+public class HomeFragment extends Fragment {
 
     public HomeFragment() {}
 
@@ -29,37 +32,59 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    RecyclerView recyclerView;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        texto = view.findViewById(R.id.text_home2);
-
-        AppDatabase db = AppDatabase.getInstance(requireActivity().getApplicationContext());
-        UsuarioDao usuarioDao = db.usuarioDao();
-
-        // Hilo para no bloquear la UI
+        AppDatabase db = AppDatabase.getInstance(requireContext());
         new Thread(() -> {
-            // Obtenemos un usuario, por ejemplo el primero de la lista
-            Usuario usuario = null;
-            if (!usuarioDao.getAll().isEmpty()) {
-                usuario = usuarioDao.getAll().get(0);
-            }
+            List<Actividad> actividades = db.actividadDao().getAll();
 
-            Usuario finalUsuario = usuario;
-
-            // Volvemos al hilo principal para actualizar la UI
             requireActivity().runOnUiThread(() -> {
-                if (finalUsuario != null) {
-                    texto.setText("Usuario: " + finalUsuario.getNombre() +
-                            "\nTiempo: " + (finalUsuario.getTiempo() != null ? finalUsuario.getTiempo() : 0));
-                } else {
-                    texto.setText("No hay usuarios en la base de datos.");
-                }
+                recyclerView.setAdapter(new ActividadAdapter(actividades));
             });
         }).start();
+
     }
 
+
+
+    private class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.VH> {
+
+        List<Actividad> lista;
+        ActividadAdapter(List<Actividad> lista) { this.lista = lista; }
+
+        class VH extends RecyclerView.ViewHolder {
+            TextView tvTitulo, tvTipo, tvFecha;
+            VH(View itemView) {
+                super(itemView);
+                tvTitulo = itemView.findViewById(R.id.tvTitulo);
+                tvTipo = itemView.findViewById(R.id.tvTipo);
+                tvFecha = itemView.findViewById(R.id.tvFecha);
+            }
+        }
+
+        @NonNull
+        @Override
+        public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_actividad, parent, false);
+            return new VH(v);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull VH holder, int position) {
+            Actividad a = lista.get(position);
+            holder.tvTitulo.setText(a.getTitulo());
+            holder.tvTipo.setText(a.getTipo());
+            holder.tvFecha.setText(a.getFecha_entrega());
+        }
+
+        @Override
+        public int getItemCount() { return lista.size(); }
+    }
 
 
 }

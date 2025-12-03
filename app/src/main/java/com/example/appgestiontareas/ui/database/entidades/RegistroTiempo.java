@@ -27,17 +27,17 @@ public class RegistroTiempo {
     private int id_tarea;
     private int id_alumno;
 
-    private int minutos_dedicados;
+    private int segundos_dedicados;
     private String fecha;
 
     // Constructor vacío requerido por Room
     public RegistroTiempo() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public RegistroTiempo(int id_alumno, int id_tarea, int minutos_dedicados, String fecha) {
+    public RegistroTiempo(int id_alumno, int id_tarea, int segundos_dedicados, String fecha) {
         this.id_alumno = id_alumno;
         this.id_tarea = id_tarea;
-        this.minutos_dedicados = minutos_dedicados;
+        this.segundos_dedicados = segundos_dedicados;
         this.fecha = fecha;
     }
 
@@ -66,12 +66,12 @@ public class RegistroTiempo {
         this.id_alumno = id_alumno;
     }
 
-    public int getMinutos_dedicados() {
-        return minutos_dedicados;
+    public int getSegundos_dedicados() {
+        return segundos_dedicados;
     }
 
-    public void setMinutos_dedicados(int minutos_dedicados) {
-        this.minutos_dedicados = minutos_dedicados;
+    public void setSegundos_dedicados(int segundos_dedicados) {
+        this.segundos_dedicados = segundos_dedicados;
     }
 
     public String getFecha() {
