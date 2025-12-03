@@ -1,9 +1,11 @@
 package com.example.appgestiontareas.ui.database.entidades;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "usuario")
 public class Usuario {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -12,15 +14,28 @@ public class Usuario {
     private String contrasena;
     private String rol;
 
+    // Campo opcional
+    private Integer tiempo;   // puede ser null
+
     // Constructor vacío requerido por Room
     public Usuario() {}
 
-    // Constructor útil para tus ejemplos
+    // Constructor útil para tus ejemplos (tiempo opcional)
     public Usuario(String nombre, String correo, String contrasena, String rol) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.rol = rol;
+        this.tiempo = null; // opcional, no obligatorio
+    }
+
+    // Constructor con tiempo opcional si quieres usarlo
+    public Usuario(String nombre, String correo, String contrasena, String rol, Integer tiempo) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.rol = rol;
+        this.tiempo = tiempo;
     }
 
     // Getters y setters
@@ -62,5 +77,13 @@ public class Usuario {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public Integer getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Integer tiempo) {
+        this.tiempo = tiempo;
     }
 }

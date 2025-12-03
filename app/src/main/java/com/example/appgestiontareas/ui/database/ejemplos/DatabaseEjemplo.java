@@ -83,9 +83,54 @@ public class DatabaseEjemplo {
             // -----------------------------------------
             // 9) INSERTAR TIEMPO PROFESOR
             // -----------------------------------------
-            TiempoProfesor prof = new TiempoProfesor((int) userId, 0, 120, "Corrección de exámenes", 3);
+            Usuario profesor = new Usuario("Profesor X", "profesorx@email.com", "pass", "profesor", 40);
+            long profesorId = db.usuarioDao().insert(profesor);
+            Usuario profesor2 = new Usuario("Profesor X2", "profesorx2@email.com", "pass", "profesor", 40);
+            long profesor2Id = db.usuarioDao().insert(profesor2);
+            TiempoProfesor prof = new TiempoProfesor((int) profesor2Id, (int) profesorId, 120, "prestar", 3);
             long profId = db.tiempoProfesorDao().insert(prof);
             Log.d("DB_TEST", "TiempoProfesor creado con ID: " + profId);
+
+
+            // ====== ACTUALIZAR TIEMPO SOLO SI ORIGEN ES PROFESOR ======
+
+            Usuario usuarioOrigen = db.usuarioDao().getById(prof.getId_profesor_origen());
+            Usuario usuarioDestino = db.usuarioDao().getById(prof.getId_profesor_destino());
+
+            if (usuarioOrigen == null || usuarioDestino == null) {
+                Log.d("DB_TEST", "Error: Usuario origen o destino no existe");
+                return; // salir si algo falla
+            }
+
+            // Solo si el rol del origen es profesor
+            if (!"profesor".equals(usuarioOrigen.getRol())) {
+                Log.d("DB_TEST", "Acción no permitida: el usuario origen no es profesor");
+                return;
+            }
+
+            Integer origenTiempoActual = usuarioOrigen.getTiempo();
+            Integer destinoTiempoActual = usuarioDestino.getTiempo();
+
+            if (origenTiempoActual == null) origenTiempoActual = 0;
+            if (destinoTiempoActual == null) destinoTiempoActual = 0;
+
+            int segundos = prof.getSegundos();
+
+            // Evitar tiempo negativo
+            int tiempoRestanteOrigen = Math.max(origenTiempoActual - segundos, 0);
+            int tiempoTransferido = origenTiempoActual - tiempoRestanteOrigen;
+            int tiempoDestinoNuevo = destinoTiempoActual + tiempoTransferido;
+
+            if (prof.getTipo().equals("prestar")) {
+                db.usuarioDao().actualizarTiempo(prof.getId_profesor_origen(), tiempoRestanteOrigen);
+                db.usuarioDao().actualizarTiempo(prof.getId_profesor_destino(), tiempoDestinoNuevo);
+            } else if (prof.getTipo().equals("regalar")) {
+                // Regalar no resta al origen
+                db.usuarioDao().actualizarTiempo(prof.getId_profesor_destino(), destinoTiempoActual + segundos);
+            }
+
+            Log.d("DB_TEST", "Tiempo actualizado ORIGEN=" + Math.max(tiempoRestanteOrigen, 0) +
+                    " DESTINO=" + (prof.getTipo().equals("prestar") ? tiempoDestinoNuevo : destinoTiempoActual + segundos));
 
             // -----------------------------------------
             // CONSULTAS DE PRUEBA

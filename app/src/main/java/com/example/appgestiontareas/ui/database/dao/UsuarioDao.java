@@ -29,4 +29,10 @@ public interface UsuarioDao {
 
     @Query("SELECT * FROM usuario WHERE rol = :rol")
     List<Usuario> getByRol(String rol);
+
+    @Query("UPDATE usuario SET tiempo = :nuevoTiempo WHERE id = :userId")
+    void actualizarTiempo(int userId, int nuevoTiempo);
+
+    @Query("SELECT tiempo FROM usuario WHERE id = :userId")
+    Integer obtenerTiempo(int userId);
 }
