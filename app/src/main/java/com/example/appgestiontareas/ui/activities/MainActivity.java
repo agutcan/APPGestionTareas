@@ -11,7 +11,7 @@ import com.example.appgestiontareas.R;
 import com.example.appgestiontareas.ui.database.ejemplos.DatabaseEjemplo;
 import com.example.appgestiontareas.ui.fragments.CalendarFragment;
 import com.example.appgestiontareas.ui.fragments.HomeFragment;
-import com.example.appgestiontareas.ui.fragments.SettingsFragment;
+import com.example.appgestiontareas.ui.fragments.FollowUpFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
             if (itemId == R.id.nav_home) {
                 selected = new HomeFragment();
-            } else if (itemId == R.id.nav_settings) {
-                selected = new SettingsFragment();
+            } else if (itemId == R.id.nav_follow_up) {
+                selected = new FollowUpFragment();
             } else if (itemId == R.id.nav_calendar) {
                 selected = new CalendarFragment();
             }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
-import com.example.appgestiontareas.ui.database.AppDatabase;
-import com.example.appgestiontareas.ui.database.dao.UsuarioDao;
-import com.example.appgestiontareas.ui.database.entidades.Actividad;
-import com.example.appgestiontareas.ui.database.entidades.Usuario;
+import com.example.appgestiontareas.ui.adapters.ActividadCardAdapter;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class HomeFragment extends Fragment {
 
@@ -32,60 +29,27 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
-    RecyclerView recyclerView;
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        super.onViewCreated(view, savedInstanceState);
 
-        AppDatabase db = AppDatabase.getInstance(requireContext());
-        new Thread(() -> {
-            List<Actividad> actividades = db.actividadDao().getAll();
+        RecyclerView rv = view.findViewById(R.id.rvCards);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            requireActivity().runOnUiThread(() -> {
-                recyclerView.setAdapter(new ActividadAdapter(actividades));
-            });
-        }).start();
+        ArrayList<String> tarjetas = new ArrayList<>();
+        tarjetas.add("Actividad 1");
+        tarjetas.add("Actividad 2");
+        tarjetas.add("Actividad 3");
+        tarjetas.add("Actividad 4");
+        tarjetas.add("Actividad 5");
+        tarjetas.add("Actividad 6");
+        tarjetas.add("Actividad 7");
+        tarjetas.add("Actividad 8");
+        tarjetas.add("Actividad 9");
+        tarjetas.add("Actividad 10");
 
+        ActividadCardAdapter adapter = new ActividadCardAdapter(tarjetas);
+        rv.setAdapter(adapter);
     }
-
-
-
-    private class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.VH> {
-
-        List<Actividad> lista;
-        ActividadAdapter(List<Actividad> lista) { this.lista = lista; }
-
-        class VH extends RecyclerView.ViewHolder {
-            TextView tvTitulo, tvTipo, tvFecha;
-            VH(View itemView) {
-                super(itemView);
-                tvTitulo = itemView.findViewById(R.id.tvTitulo);
-                tvTipo = itemView.findViewById(R.id.tvTipo);
-                tvFecha = itemView.findViewById(R.id.tvFecha);
-            }
-        }
-
-        @NonNull
-        @Override
-        public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_actividad, parent, false);
-            return new VH(v);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull VH holder, int position) {
-            Actividad a = lista.get(position);
-            holder.tvTitulo.setText(a.getTitulo());
-            holder.tvTipo.setText(a.getTipo());
-            holder.tvFecha.setText(a.getFecha_entrega());
-        }
-
-        @Override
-        public int getItemCount() { return lista.size(); }
-    }
-
-
 }
 
