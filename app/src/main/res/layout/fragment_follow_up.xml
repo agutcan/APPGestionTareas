@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/text_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:text="Seguimiento"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -38,46 +38,40 @@
 
 
     <Button
-        android:id="@+id/btnHorario"
-        android:layout_width="355dp"
-        android:layout_height="90dp"
-        android:backgroundTint="#47A84B"
-        android:text="@string/btnHorario"
-        android:textColorLink="#000000"
-        app:cornerRadius="?android:attr/buttonCornerRadius"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <Button
         android:id="@+id/btnReportes"
         android:layout_width="355dp"
         android:layout_height="90dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#47A84B"
         android:text="@string/btnReportes"
-        app:cornerRadius="?android:attr/buttonCornerRadius"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <Button
+        android:id="@+id/btnHorario"
+        android:layout_width="355dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#47A84B"
+        android:text="@string/btnHorario"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReportes" />
 
     <Button
         android:id="@+id/btnBienestar"
         android:layout_width="355dp"
         android:layout_height="90dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#47A84B"
         android:text="@string/btnBienestar"
-        app:cornerRadius="?android:attr/buttonCornerRadius"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/btnHorario" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
