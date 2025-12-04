@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
-import com.example.appgestiontareas.ui.adapters.CardAdapter;
+import com.example.appgestiontareas.ui.adapters.ActividadCardAdapter;
 
 import java.util.ArrayList;
 
@@ -47,9 +47,8 @@ public class HomeFragment extends Fragment {
         tarjetas.add("Actividad 8");
         tarjetas.add("Actividad 9");
         tarjetas.add("Actividad 10");
-        // añadir tantas como quieras dinámicamente
 
-        CardAdapter adapter = new CardAdapter(tarjetas);
+        ActividadCardAdapter adapter = new ActividadCardAdapter(tarjetas);
         rv.setAdapter(adapter);
     }
 }
