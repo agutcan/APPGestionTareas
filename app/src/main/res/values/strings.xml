@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">APPGestionTareas</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="btnHorario">Horario</string>
+    <string name="btnReportes">Reportes</string>
+    <string name="btnBienestar">Bienestar</string>
 </resources>
