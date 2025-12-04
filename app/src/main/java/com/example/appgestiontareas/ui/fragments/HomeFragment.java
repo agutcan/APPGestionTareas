@@ -12,12 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
-import com.example.appgestiontareas.ui.adapters.ActividadCardAdapter;
+import com.example.appgestiontareas.ui.adapters.ActividadAdapter;
+import com.example.appgestiontareas.ui.database.entidades.Actividad;
+import com.example.appgestiontareas.ui.database.repository.ActividadRepository;
 
-import java.util.ArrayList;
-
+import java.util.List;
 
 public class HomeFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private ActividadRepository actividadRepository;
 
     public HomeFragment() {}
 
@@ -31,25 +35,15 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.rvCards);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        RecyclerView rv = view.findViewById(R.id.rvCards);
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        actividadRepository = new ActividadRepository(requireContext());
 
-        ArrayList<String> tarjetas = new ArrayList<>();
-        tarjetas.add("Actividad 1");
-        tarjetas.add("Actividad 2");
-        tarjetas.add("Actividad 3");
-        tarjetas.add("Actividad 4");
-        tarjetas.add("Actividad 5");
-        tarjetas.add("Actividad 6");
-        tarjetas.add("Actividad 7");
-        tarjetas.add("Actividad 8");
-        tarjetas.add("Actividad 9");
-        tarjetas.add("Actividad 10");
-
-        ActividadCardAdapter adapter = new ActividadCardAdapter(tarjetas);
-        rv.setAdapter(adapter);
+        // Usamos el Repository con callback
+        actividadRepository.getAll(lista -> requireActivity().runOnUiThread(() -> {
+            ActividadAdapter adapter = new ActividadAdapter(lista);
+            recyclerView.setAdapter(adapter);
+        }));
     }
 }
-

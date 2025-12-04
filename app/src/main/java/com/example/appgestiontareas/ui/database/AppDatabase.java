@@ -37,7 +37,7 @@ import com.example.appgestiontareas.ui.database.entidades.TiempoProfesor;
                 Bienestar.class,
                 TiempoProfesor.class
         },
-        version = 6,
+        version = 7,
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {

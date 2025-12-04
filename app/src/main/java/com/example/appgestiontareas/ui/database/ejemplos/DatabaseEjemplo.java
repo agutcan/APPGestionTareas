@@ -1,8 +1,11 @@
 package com.example.appgestiontareas.ui.database.ejemplos;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.content.Context;
 import android.util.Log;
 
+import com.example.appgestiontareas.ui.adapters.ActividadAdapter;
 import com.example.appgestiontareas.ui.database.AppDatabase;
 import com.example.appgestiontareas.ui.database.entidades.Usuario;
 import com.example.appgestiontareas.ui.database.entidades.Curso;
@@ -12,6 +15,8 @@ import com.example.appgestiontareas.ui.database.entidades.RegistroTiempo;
 import com.example.appgestiontareas.ui.database.entidades.Planificacion;
 import com.example.appgestiontareas.ui.database.entidades.Bienestar;
 import com.example.appgestiontareas.ui.database.entidades.TiempoProfesor;
+import com.example.appgestiontareas.ui.database.repository.ActividadRepository;
+import com.example.appgestiontareas.ui.database.repository.UsuarioRepository;
 
 import java.util.List;
 
@@ -23,6 +28,13 @@ public class DatabaseEjemplo {
 
         new Thread(() -> {
             Log.d("DB_TEST", "---- INICIO DE PRUEBAS ----");
+
+            // Usuarios
+            List<Usuario> usuarios = db.usuarioDao().getAll();
+            if (!usuarios.isEmpty()) {
+                // Si ya hay datos no se hace nada
+                return;
+            }
 
             // -----------------------------------------
             // 1) INSERTAR USUARIO
