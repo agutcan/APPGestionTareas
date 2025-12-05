@@ -21,6 +21,12 @@
             android:name=".ui.fragments.TimeActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.activities.PlanificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.fragments.ScheduleFragment"
             android:exported="false" />
         <activity
