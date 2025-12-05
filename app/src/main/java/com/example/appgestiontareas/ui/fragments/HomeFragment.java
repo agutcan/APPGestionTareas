@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,10 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
 import com.example.appgestiontareas.ui.adapters.ActividadAdapter;
-import com.example.appgestiontareas.ui.database.entidades.Actividad;
 import com.example.appgestiontareas.ui.database.repository.ActividadRepository;
-
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -45,5 +43,17 @@ public class HomeFragment extends Fragment {
             ActividadAdapter adapter = new ActividadAdapter(lista);
             recyclerView.setAdapter(adapter);
         }));
+
+//        ASI SE CAMBIA DE FRAGMENT        //
+
+//        Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
+//        btnCambiar.setOnClickListener(v -> {
+//            Fragment nuevoFragment = new ActivitityFragment();
+//            getParentFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container, nuevoFragment)
+//                    .addToBackStack(null)
+//                    .commit();
+//        });
     }
 }

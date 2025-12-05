@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APPGestionTareas">
         <activity
+            android:name=".ui.activities.Reports"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.Welfare"
+            android:exported="false" />
+        <activity
+            android:name=".ui.fragments.TimeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.fragments.ScheduleFragment"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
