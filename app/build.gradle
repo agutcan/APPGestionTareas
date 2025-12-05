@@ -55,6 +55,7 @@ dependencies {
     androidTestImplementation libs.ui.test.junit4
     debugImplementation libs.ui.tooling
     debugImplementation libs.ui.test.manifest
+    implementation libs.material.calendarview
 
     def room_version = "2.6.1"
     implementation "androidx.room:room-runtime:$room_version"

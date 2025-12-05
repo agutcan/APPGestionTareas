@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APPGestionTareas">
         <activity
+            android:name=".ui.activities.PlanificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.LoginActivity"
             android:exported="false" />
         <activity
