@@ -43,7 +43,7 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.VH> 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         Actividad a = lista.get(position);
-        holder.tvTitulo.setText(a.getTitulo());
+        holder.tvTitulo.setText(a.getTipo() + ": "+ a.getTitulo());
         holder.tvTipo.setText(a.getTipo());
         holder.tvFecha.setText(a.getFecha_entrega());
     }
