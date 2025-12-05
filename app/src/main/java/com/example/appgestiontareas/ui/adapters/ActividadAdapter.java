@@ -1,5 +1,7 @@
 package com.example.appgestiontareas.ui.adapters;
 
+import static com.example.appgestiontareas.ui.utils.utils.capitalize;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,9 +45,9 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.VH> 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         Actividad a = lista.get(position);
-        holder.tvTitulo.setText(a.getTipo() + ": "+ a.getTitulo());
-        holder.tvTipo.setText(a.getTipo());
-        holder.tvFecha.setText(a.getFecha_entrega());
+        holder.tvTitulo.setText(a.getTitulo());
+        holder.tvTipo.setText("Tipo: " + capitalize(a.getTipo()));
+        holder.tvFecha.setText("Fecha de entrega: " + a.getFecha_entrega());
     }
 
     @Override

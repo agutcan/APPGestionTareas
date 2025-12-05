@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
-import com.example.appgestiontareas.ui.database.ejemplos.DatabaseEjemplo;
 import com.example.appgestiontareas.ui.fragments.CalendarFragment;
 import com.example.appgestiontareas.ui.fragments.HomeFragment;
 import com.example.appgestiontareas.ui.fragments.FollowUpFragment;
@@ -21,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        DatabaseEjemplo.ejecutar(this);
 
         // Ocultar la barra de estado y la barra de navegación
         View decorView = getWindow().getDecorView();
