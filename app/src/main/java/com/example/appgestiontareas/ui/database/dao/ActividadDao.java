@@ -37,4 +37,8 @@ public interface ActividadDao {
 
     @Query("SELECT * FROM actividad WHERE tipo = :tipo")
     List<Actividad> getByTipo(String tipo);
+
+    @Query("SELECT * FROM actividad ORDER BY fecha_entrega")
+    List<Actividad> getAllOrderByFecha();
+
 }
