@@ -24,7 +24,6 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -63,6 +62,7 @@ public class PlanificationActivity extends AppCompatActivity {
 
         // ids: prof 8, 0 estudiante
         obtenerUsuario();
+        cargarActividades();
 
         radioGroup = findViewById(R.id.radioGroupTipo);
         rbTarea = findViewById(R.id.rbTarea);
@@ -131,22 +131,29 @@ public class PlanificationActivity extends AppCompatActivity {
     private void marcarTareasExamenes() {
         calendario.removeDecorators();
         actividadesPorFecha.forEach((fecha, actividades) -> {
-            int secsExamen = 0;
-            int secsTarea = 0;
-            for (Actividad a : actividades) {
-                if (a.getTipo().equals("examen")) {
-                    secsExamen += a.getSegundos_estimados();
-                } else {
-                    secsTarea += a.getSegundos_estimados();
-                }
-            }
-//            calendario.addDecorator(
-//                    new DayMultiColorCircularDecorator(
-//                            CalendarDay.from(convertirFecha(fecha)),
-//                            secsTarea, Color.RED),
-//                            secsExamen
-        });
+            int[] segundos = calcularSegundosActividades(actividades);
+            int secsTarea = segundos[0];
+            int secsExamen = segundos[1];
 
+            calendario.addDecorator(
+                    new DayMultiColorCircularDecorator(
+                            CalendarDay.from(convertirFecha(fecha)),
+                            secsTarea, Color.BLUE,
+                            secsExamen, Color.RED
+                    )
+            );
+        });
+        Log.d("ACT_TEST", "TareasExamenes");
+    }
+
+    private int[] calcularSegundosActividades(List<Actividad> actividades) {
+        int secsExamen = 0;
+        int secsTarea = 0;
+        for (Actividad a : actividades) {
+            if (a.getTipo().equals("examen")) secsExamen += a.getSegundos_estimados();
+            else secsTarea += a.getSegundos_estimados();
+        }
+        return new int[]{secsTarea, secsExamen};
     }
 
     private Date convertirFecha(String fecha) {
@@ -158,12 +165,35 @@ public class PlanificationActivity extends AppCompatActivity {
     }
 
 
+    private void marcarActividades(String tipo) {
+        int color = (tipo.equals("examen"))? Color.BLUE : Color.RED;
+        actividadesPorFecha.forEach((fecha, actividades) -> {
+            int segundos = 0;
+            for (Actividad a : actividades) {
+                if (a.getTipo().equals(tipo)) segundos += a.getSegundos_estimados();
+            }
+            if (segundos > 0) {
+                calendario.addDecorator(
+                        new DayMultiColorCircularDecorator(
+                                CalendarDay.from(convertirFecha(fecha)),
+                                segundos, color
+                        )
+                );
+            }
+            Log.d("ACT_TEST", "ExamenFecha: " + fecha + " segundos: " + segundos);
+        });
+    }
+
     private void marcarTareas() {
         calendario.removeDecorators();
+        marcarActividades("tarea");
+        Log.d("ACT_TEST", "tareas");
     }
 
     private void MarcarExamenes() {
         calendario.removeDecorators();
+        marcarActividades("examen");
+        Log.d("ACT_TEST", "examenes");
     }
 
     private void iniciarDeseleccionRadioGroup() {
