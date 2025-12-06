@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APPGestionTareas">
         <activity
-            android:name=".ui.activities.Reports"
+            android:name=".ui.activities.ReportsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.Welfare"
