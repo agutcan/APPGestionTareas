@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#F5FFEB">
+
+
+    <!-- Grupo de RadioButtons -->
+
+    <!-- PROFESOR LABEL -->
+
+    <!-- CAMPO PROFESOR -->
+    <ImageButton
+        android:id="@+id/ajustesBtn2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <TextView
+        android:id="@+id/text_home3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial de actividad"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <!-- ICONO AMARILLO PROFESOR -->
+    <RadioGroup
+        android:id="@+id/radioGroupAccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbDar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dar" />
+
+        <RadioButton
+            android:id="@+id/rbLiberar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Liberar" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Profesor (Opcional)"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupAccion" />
+
+    <EditText
+        android:id="@+id/etProfesor"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvProfesor"
+        app:layout_constraintStart_toEndOf="@id/tvProfesor"
+        app:layout_constraintTop_toTopOf="@id/tvProfesor"
+        app:layout_constraintVertical_bias="0.56" />
+
+    <!-- TIEMPO LABEL -->
+
+    <!-- CAMPO TIEMPO -->
+
+    <!-- ICONO AMARILLO TIEMPO -->
+
+    <TextView
+        android:id="@+id/tvTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Tiempo"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProfesor" />
+
+    <!-- BOTÓN ENVIAR -->
+
+    <!-- ICONO AMARILLO BOTÓN -->
+
+    <EditText
+        android:id="@+id/etTiempo"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="36dp"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTiempo"
+        app:layout_constraintStart_toEndOf="@id/tvTiempo"
+        app:layout_constraintTop_toTopOf="@id/tvTiempo"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        android:text="Enviar"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTiempo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

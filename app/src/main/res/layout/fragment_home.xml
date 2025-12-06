@@ -35,6 +35,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
 
+    <Button
+        android:id="@+id/btnCambiarFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/btn_redondo"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="Cambiar"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCards"
         android:layout_width="411dp"

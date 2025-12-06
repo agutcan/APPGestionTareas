@@ -46,14 +46,14 @@ public class HomeFragment extends Fragment {
 
 //        ASI SE CAMBIA DE FRAGMENT        //
 
-//        Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
-//        btnCambiar.setOnClickListener(v -> {
-//            Fragment nuevoFragment = new ActivitityFragment();
-//            getParentFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, nuevoFragment)
-//                    .addToBackStack(null)
-//                    .commit();
-//        });
+        Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
+        btnCambiar.setOnClickListener(v -> {
+            Fragment nuevoFragment = new ActivitityFragment();
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, nuevoFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
     }
 }
