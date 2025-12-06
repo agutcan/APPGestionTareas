@@ -35,4 +35,8 @@ public interface UsuarioDao {
 
     @Query("SELECT tiempo FROM usuario WHERE id = :userId")
     Integer obtenerTiempo(int userId);
+
+    @Query("SELECT id FROM usuario WHERE rol = 'profesor' AND id != :idExcluido")
+    List<Integer> obtenerIdsProfesoresExcepto(int idExcluido);
+
 }

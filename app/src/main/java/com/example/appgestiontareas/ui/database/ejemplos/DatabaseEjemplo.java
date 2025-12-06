@@ -367,11 +367,13 @@ public class DatabaseEjemplo {
             // 9) INSERTAR TIEMPO PROFESOR
             // -----------------------------------------
 
-            Usuario profesor = new Usuario("Profesor X", "profesorx@email.com", "pass", "profesor", 40);
+            Usuario profesor = new Usuario("Profesor X", "profesorx@email.com", "pass", "profesor", 200000);
             long profesorId = db.usuarioDao().insert(profesor);
-            Usuario profesor2 = new Usuario("Profesor X2", "profesorx2@email.com", "pass", "profesor", 40);
+            Usuario profesor2 = new Usuario("Profesor X2", "profesorx2@email.com", "pass", "profesor", 200000);
             long profesor2Id = db.usuarioDao().insert(profesor2);
-            TiempoProfesor prof = new TiempoProfesor((int) profesor2Id, (int) profesorId, 120, "prestar", 3);
+            Usuario profesor3 = new Usuario("Profesor X3", "profesorx3@email.com", "pass", "profesor", 100000);
+            long profesor3Id = db.usuarioDao().insert(profesor3);
+            TiempoProfesor prof = new TiempoProfesor((int) profesor2Id, (int) profesorId, 1200, "prestar", 3);
             long profId = db.tiempoProfesorDao().insert(prof);
             Log.d("DB_TEST", "TiempoProfesor creado con ID: " + profId);
 

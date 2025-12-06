@@ -1,10 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.TimeActivity">
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <ImageButton
+        android:id="@+id/ajustesBtn2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <TextView
+        android:id="@+id/text_home3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial de actividad"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbDar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dar" />
+
+        <RadioButton
+            android:id="@+id/rbLiberar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Liberar" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Profesor (Opcional)"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupAccion" />
+
+    <Spinner
+        android:id="@+id/spProfesor"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
+        android:background="@android:drawable/edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/tvProfesor"
+        app:layout_constraintStart_toEndOf="@id/tvProfesor"
+        app:layout_constraintTop_toTopOf="@id/tvProfesor" />
+
+    <!-- NUEVO TEXTVIEW - TIEMPO LIBRE DEL PROFESOR -->
+    <TextView
+        android:id="@+id/tvTiempoLibre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo libre: --"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:textColor="#444444"
+        app:layout_constraintTop_toBottomOf="@id/spProfesor"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Tiempo"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTiempoLibre" />
+
+    <EditText
+        android:id="@+id/etTiempo"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="36dp"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        app:layout_constraintStart_toEndOf="@id/tvTiempo"
+        app:layout_constraintTop_toTopOf="@id/tvTiempo"
+        app:layout_constraintBottom_toBottomOf="@id/tvTiempo" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        android:text="Confirmar"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/tvTiempo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
