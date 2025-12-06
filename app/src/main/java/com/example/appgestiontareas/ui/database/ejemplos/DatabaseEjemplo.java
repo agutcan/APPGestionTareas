@@ -65,6 +65,47 @@ public class DatabaseEjemplo {
             Log.d("DB_TEST", "Usuario creado con ID: " + userId6);
 
             // -----------------------------------------
+            // 4) INSERTAR PROFESORES
+            // -----------------------------------------
+
+            Usuario profesor1 = new Usuario("Profesor Lengua", "lengua@email.com", "pass", "profesor", 200000);
+            long profesorId1 = db.usuarioDao().insert(profesor1);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId1);
+
+            Usuario profesor2 = new Usuario("Profesor Mates", "mates@email.com", "pass", "profesor", 200000);
+            long profesorId2 = db.usuarioDao().insert(profesor2);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId2);
+
+            Usuario profesor3 = new Usuario("Profesor Conocimientos del Medio", "cm@email.com", "pass", "profesor", 200000);
+            long profesorId3 = db.usuarioDao().insert(profesor3);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId3);
+
+            Usuario profesor4 = new Usuario("Profesor Religión", "religion@email.com", "pass", "profesor", 200000);
+            long profesorId4 = db.usuarioDao().insert(profesor4);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId4);
+
+            Usuario profesor5 = new Usuario("Profesor Educación Física", "ef@email.com", "pass", "profesor", 200000);
+            long profesorId5 = db.usuarioDao().insert(profesor5);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId5);
+
+            Usuario profesor6 = new Usuario("Profesor Música", "musica@email.com", "pass", "profesor", 200000);
+            long profesorId6 = db.usuarioDao().insert(profesor6);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId6);
+
+            Usuario profesor7 = new Usuario("Profesor Inglés", "ingles@email.com", "pass", "profesor", 200000);
+            long profesorId7 = db.usuarioDao().insert(profesor7);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId7);
+
+            Usuario profesor8 = new Usuario("Profesor Francés", "frances@email.com", "pass", "profesor", 200000);
+            long profesorId8 = db.usuarioDao().insert(profesor8);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId8);
+
+            Usuario profesor9 = new Usuario("Profesor Refuerzo/Lectura", "refuerzo@email.com", "pass", "profesor", 200000);
+            long profesorId9 = db.usuarioDao().insert(profesor9);
+            Log.d("DB_TEST", "Profesor creado con ID: " + profesorId9);
+
+
+            // -----------------------------------------
             // 2) INSERTAR CURSO
             // -----------------------------------------
 
@@ -367,12 +408,10 @@ public class DatabaseEjemplo {
             // 9) INSERTAR TIEMPO PROFESOR
             // -----------------------------------------
 
-            Usuario profesor = new Usuario("Profesor X", "profesorx@email.com", "pass", "profesor", 200000);
-            long profesorId = db.usuarioDao().insert(profesor);
-            Usuario profesor2 = new Usuario("Profesor X2", "profesorx2@email.com", "pass", "profesor", 200000);
-            long profesor2Id = db.usuarioDao().insert(profesor2);
-            Usuario profesor3 = new Usuario("Profesor X3", "profesorx3@email.com", "pass", "profesor", 100000);
-            long profesor3Id = db.usuarioDao().insert(profesor3);
+            Usuario profesorX = new Usuario("Profesor X", "profesorx@email.com", "pass", "profesor", 200000);
+            long profesorId = db.usuarioDao().insert(profesorX);
+            Usuario profesorX2 = new Usuario("Profesor X2", "profesorx2@email.com", "pass", "profesor", 200000);
+            long profesor2Id = db.usuarioDao().insert(profesorX2);
             TiempoProfesor prof = new TiempoProfesor((int) profesor2Id, (int) profesorId, 1200, "prestar", 3);
             long profId = db.tiempoProfesorDao().insert(prof);
             Log.d("DB_TEST", "TiempoProfesor creado con ID: " + profId);
