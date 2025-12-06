@@ -24,6 +24,8 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,13 +130,40 @@ public class PlanificationActivity extends AppCompatActivity {
 
     private void marcarTareasExamenes() {
         calendario.removeDecorators();
+        actividadesPorFecha.forEach((fecha, actividades) -> {
+            int secsExamen = 0;
+            int secsTarea = 0;
+            for (Actividad a : actividades) {
+                if (a.getTipo().equals("examen")) {
+                    secsExamen += a.getSegundos_estimados();
+                } else {
+                    secsTarea += a.getSegundos_estimados();
+                }
+            }
+//            calendario.addDecorator(
+//                    new DayMultiColorCircularDecorator(
+//                            CalendarDay.from(convertirFecha(fecha)),
+//                            secsTarea, Color.RED),
+//                            secsExamen
+        });
 
     }
 
+    private Date convertirFecha(String fecha) {
+        String[] partes = fecha.split("-");
+        int year = Integer.parseInt(partes[0]);
+        int month = Integer.parseInt(partes[1]) - 1;
+        int day = Integer.parseInt(partes[2]);
+        return new Date(year, month, day);
+    }
+
+
     private void marcarTareas() {
+        calendario.removeDecorators();
     }
 
     private void MarcarExamenes() {
+        calendario.removeDecorators();
     }
 
     private void iniciarDeseleccionRadioGroup() {
