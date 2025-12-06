@@ -48,7 +48,7 @@ public class DatabaseEjemplo {
             long userId2 = db.usuarioDao().insert(usuario2);
             Log.d("DB_TEST", "Usuario creado con ID: " + userId2);
 
-            Usuario usuario3 = new Usuario("Lucía", "lucia@gmail.com", "pass123", "profesor");
+            Usuario usuario3 = new Usuario("Lucía", "lucia@gmail.com", "pass123", "estudiante");
             long userId3 = db.usuarioDao().insert(usuario3);
             Log.d("DB_TEST", "Usuario creado con ID: " + userId3);
 
@@ -56,11 +56,11 @@ public class DatabaseEjemplo {
             long userId4 = db.usuarioDao().insert(usuario4);
             Log.d("DB_TEST", "Usuario creado con ID: " + userId4);
 
-            Usuario usuario5 = new Usuario("Sofía", "sofia@yahoo.es", "pass999", "padre");
+            Usuario usuario5 = new Usuario("Sofía", "sofia@yahoo.es", "pass999", "estudiante");
             long userId5 = db.usuarioDao().insert(usuario5);
             Log.d("DB_TEST", "Usuario creado con ID: " + userId5);
 
-            Usuario usuario6 = new Usuario("Javier", "javier@correo.com", "xyz123", "profesor");
+            Usuario usuario6 = new Usuario("Javier", "javier@correo.com", "xyz123", "estudiante");
             long userId6 = db.usuarioDao().insert(usuario6);
             Log.d("DB_TEST", "Usuario creado con ID: " + userId6);
 

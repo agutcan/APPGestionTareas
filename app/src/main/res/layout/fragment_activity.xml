@@ -4,14 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:background="#F5FFEB">
+    android:background="#FFFFFF">
 
-
-    <!-- Grupo de RadioButtons -->
-
-    <!-- PROFESOR LABEL -->
-
-    <!-- CAMPO PROFESOR -->
     <ImageButton
         android:id="@+id/ajustesBtn2"
         android:layout_width="50dp"
@@ -77,23 +71,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroupAccion" />
 
-    <EditText
-        android:id="@+id/etProfesor"
+    <Spinner
+        android:id="@+id/spProfesor"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="12dp"
         android:background="@android:drawable/edit_text"
-        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@id/tvProfesor"
         app:layout_constraintStart_toEndOf="@id/tvProfesor"
         app:layout_constraintTop_toTopOf="@id/tvProfesor"
         app:layout_constraintVertical_bias="0.56" />
-
-    <!-- TIEMPO LABEL -->
-
-    <!-- CAMPO TIEMPO -->
-
-    <!-- ICONO AMARILLO TIEMPO -->
 
     <TextView
         android:id="@+id/tvTiempo"
@@ -104,10 +91,6 @@
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvProfesor" />
-
-    <!-- BOTÓN ENVIAR -->
-
-    <!-- ICONO AMARILLO BOTÓN -->
 
     <EditText
         android:id="@+id/etTiempo"
@@ -127,7 +110,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
         android:background="#FFFFFF"
-        android:text="Enviar"
+        android:text="Confirmar"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"

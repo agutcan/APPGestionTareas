@@ -48,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkLogin(String email, String password) {
-        // andrea@email.com    1234
+        // Usuario normal de ejemplo: andrea@email.com    1234
+        // Profesor de ejemplo: profesorx@email.com     pass
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
