@@ -17,6 +17,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.utils.utils;
+
+import java.util.Date;
 
 public class ActivityFragment extends Fragment {
 
@@ -88,14 +91,15 @@ public class ActivityFragment extends Fragment {
             // 2. Fechas
             String fechaAsignacion = inputAsignacion.getText().toString().trim();
             String fechaEntrega = inputEntrega.getText().toString().trim();
-
+            String fechaAsignacionNormalizada = utils.normalizarFecha(fechaAsignacion);
+            String fechaEntregaNormalizada = utils.normalizarFecha(fechaEntrega);
             // 3. Descripción
             String descripcion = inputDescripcion.getText().toString().trim();
 
             // -------- DEBUG - Mostrar los datos --------
             Log.d("CREAR_ACTIVIDAD", "Tipo: " + tipo);
-            Log.d("CREAR_ACTIVIDAD", "Asignación: " + fechaAsignacion);
-            Log.d("CREAR_ACTIVIDAD", "Entrega: " + fechaEntrega);
+            Log.d("CREAR_ACTIVIDAD", "Asignación: " + fechaAsignacionNormalizada);
+            Log.d("CREAR_ACTIVIDAD", "Entrega: " + fechaEntregaNormalizada);
             Log.d("CREAR_ACTIVIDAD", "Descripción: " + descripcion);
 
             // Aquí ya puedes guardar en BD, enviar a API, etc.
