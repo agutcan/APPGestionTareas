@@ -48,23 +48,25 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkLogin(String email, String password) {
         // andrea@email.com    1234
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
-            AppDatabase db = AppDatabase.getInstance(this);
-            List<Usuario> usuarios = db.usuarioDao().getAll();
-            for (Usuario u : usuarios) {
-                Log.d("LOGIN_TEST", "Usuario en DB: " + u.getCorreo() + " / " + u.getContrasena());
-                if (u.getCorreo().trim().equalsIgnoreCase(email) && u.getContrasena().trim().equals(password)) {
-                    // Usuario correcto: llama al método que abre MainActivity
-                    runOnUiThread(this::navegarHome);
-                    return; // Salimos del bucle
-                }
-            }
-
-            // Usuario incorrecto
-            runOnUiThread(() ->
-                    Toast.makeText(LoginActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show()
-            );
+            runOnUiThread(this::navegarHome);
+//            AppDatabase db = AppDatabase.getInstance(this);
+//            List<Usuario> usuarios = db.usuarioDao().getAll();
+//            for (Usuario u : usuarios) {
+//                Log.d("LOGIN_TEST", "Usuario en DB: " + u.getCorreo() + " / " + u.getContrasena());
+//                if (u.getCorreo().trim().equalsIgnoreCase(email) && u.getContrasena().trim().equals(password)) {
+//                    // Usuario correcto: llama al método que abre MainActivity
+//                    runOnUiThread(this::navegarHome);
+//                    return; // Salimos del bucle
+//                }
+//            }
+//
+//            // Usuario incorrecto
+//            runOnUiThread(() ->
+//                    Toast.makeText(LoginActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+//            );
         });
     }
 
