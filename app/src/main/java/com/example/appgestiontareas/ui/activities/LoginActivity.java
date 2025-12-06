@@ -21,6 +21,7 @@ import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private final static String FICHERO = "USER_PREFS";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +57,17 @@ public class LoginActivity extends AppCompatActivity {
             for (Usuario u : usuarios) {
                 Log.d("LOGIN_TEST", "Usuario en DB: " + u.getCorreo() + " / " + u.getContrasena());
                 if (u.getCorreo().trim().equalsIgnoreCase(email) && u.getContrasena().trim().equals(password)) {
-                    // Usuario correcto: llama al método que abre MainActivity
+
+                    // Guardamos el ID del usuario logueado
+                    getSharedPreferences(FICHERO, MODE_PRIVATE)
+                            .edit()
+                            .putInt("user_id", u.getId())
+                            .apply();
+
                     runOnUiThread(this::navegarHome);
-                    return; // Salimos del bucle
+                    return;
                 }
+
             }
 
             // Usuario incorrecto
