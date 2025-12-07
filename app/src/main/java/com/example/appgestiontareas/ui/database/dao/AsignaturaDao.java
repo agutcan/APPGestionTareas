@@ -30,4 +30,7 @@ public interface AsignaturaDao {
 
     @Query("SELECT * FROM asignaturas WHERE id_curso = :idCurso")
     List<Asignatura> getByCurso(int idCurso);
+
+    @Query("SELECT * FROM asignaturas WHERE id_profesor = :idProfesor LIMIT 1")
+    Asignatura getAsignaturaPorProfesor(int idProfesor);
 }

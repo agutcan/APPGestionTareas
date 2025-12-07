@@ -11,12 +11,12 @@ import androidx.room.ForeignKey;
                         childColumns = "id_asignatura",
                         onDelete = ForeignKey.CASCADE
                 ),
-                @ForeignKey(
-                        entity = Usuario.class,
-                        parentColumns = "id",
-                        childColumns = "id_alumno",
-                        onDelete = ForeignKey.CASCADE
-                )
+//                @ForeignKey(
+//                        entity = Usuario.class,
+//                        parentColumns = "id",
+//                        childColumns = "id_alumno",
+//                        onDelete = ForeignKey.CASCADE
+//                )
         }
 )
 public class Actividad {
@@ -25,7 +25,7 @@ public class Actividad {
     private int id;
 
     private int id_asignatura;
-    private int id_alumno;
+    // private Integer id_alumno;
 
     private String titulo;
     private String descripcion;
@@ -40,9 +40,9 @@ public class Actividad {
     public Actividad() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Actividad(int id_asignatura, int id_alumno, String titulo, String tipo, String fecha_entrega) {
+    public Actividad(int id_asignatura, String titulo, String tipo, String fecha_entrega) {
         this.id_asignatura = id_asignatura;
-        this.id_alumno = id_alumno;
+        //this.id_alumno = id_alumno;
         this.titulo = titulo;
         this.tipo = tipo;
         this.fecha_entrega = fecha_entrega;
@@ -66,13 +66,13 @@ public class Actividad {
         this.id_asignatura = id_asignatura;
     }
 
-    public int getId_alumno() {
-        return id_alumno;
-    }
+    // public int getId_alumno() {
+//        return id_alumno;
+//    }
 
-    public void setId_alumno(int id_alumno) {
-        this.id_alumno = id_alumno;
-    }
+    //public void setId_alumno(int id_alumno) {
+//        this.id_alumno = id_alumno;
+//    }
 
     public String getTitulo() {
         return titulo;

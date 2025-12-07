@@ -2,11 +2,42 @@ package com.example.appgestiontareas.ui.utils;
 
 import android.icu.util.Calendar;
 
+import java.util.Date;
+
 public class utils {
     public static String capitalize(String text) {
         if (text == null || text.isEmpty()) return text;
         return text.substring(0, 1).toUpperCase() + text.substring(1);
     }
+
+    public static Date convertirFecha(String fecha) {
+        String[] partes = fecha.split("[-/]");
+        int year = Integer.parseInt(partes[0]);
+        int month = Integer.parseInt(partes[1]) - 1;
+        int day = Integer.parseInt(partes[2]);
+        return new Date(year, month, day);
+    }
+
+    public static String normalizarFecha(String fecha) {
+
+        // Reemplazar "/" por "-"
+        String f = fecha.replace("/", "-");
+
+        // Separar partes
+        String[] partes = f.split("-");
+
+        // partes[0] = día
+        // partes[1] = mes
+        // partes[2] = año
+
+        String dia = partes[0];
+        String mes = partes[1];
+        String año = partes[2];
+
+        // Devolver en formato YYYY-MM-DD
+        return año + "-" + mes + "-" + dia;
+    }
+
 
     public static int obtenerSemanaActual() {
         return Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);

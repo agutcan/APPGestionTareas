@@ -65,12 +65,12 @@ public class ActividadRepository {
     }
 
     // ============ GET BY ALUMNO ============
-    public void getByAlumno(int idAlumno, CallbackLista callback) {
-        executor.execute(() -> {
-            List<Actividad> lista = actividadDao.getByAlumno(idAlumno);
-            callback.onResult(lista);
-        });
-    }
+//    public void getByAlumno(int idAlumno, CallbackLista callback) {
+//        executor.execute(() -> {
+//            List<Actividad> lista = actividadDao.getByAlumno(idAlumno);
+//            callback.onResult(lista);
+//        });
+//    }
 
     // ============ GET BY ASIGNATURA ============
     public void getByAsignatura(int idAsignatura, CallbackLista callback) {
