@@ -117,39 +117,39 @@ public class DatabaseEjemplo {
             // 3) INSERTAR ASIGNATURA
             // -----------------------------------------
 
-            Asignatura asignatura1 = new Asignatura((int) cursoId, "Lengua", 5);
+            Asignatura asignatura1 = new Asignatura((int) cursoId, "Lengua", 5, (int) profesorId1);
             long asignaturaId = db.asignaturaDao().insert(asignatura1);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId);
 
-            Asignatura asignatura2 = new Asignatura((int) cursoId, "Mates", 5);
+            Asignatura asignatura2 = new Asignatura((int) cursoId, "Mates", 5, (int) profesorId2);
             long asignaturaId2 = db.asignaturaDao().insert(asignatura2);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId2);
 
-            Asignatura asignatura3 = new Asignatura((int) cursoId, "Conocimientos del Medio", 3);
+            Asignatura asignatura3 = new Asignatura((int) cursoId, "Conocimientos del Medio", 3, (int) profesorId3);
             long asignaturaId3 = db.asignaturaDao().insert(asignatura3);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId3);
 
-            Asignatura asignatura4 = new Asignatura((int) cursoId, "Religión", 1);
+            Asignatura asignatura4 = new Asignatura((int) cursoId, "Religión", 1, (int) profesorId4);
             long asignaturaId4 = db.asignaturaDao().insert(asignatura4);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId4);
 
-            Asignatura asignatura5 = new Asignatura((int) cursoId, "Educación Física", 2);
+            Asignatura asignatura5 = new Asignatura((int) cursoId, "Educación Física", 2, (int) profesorId5);
             long asignaturaId5 = db.asignaturaDao().insert(asignatura5);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId5);
 
-            Asignatura asignatura6 = new Asignatura((int) cursoId, "Música", 1);
+            Asignatura asignatura6 = new Asignatura((int) cursoId, "Música", 1, (int) profesorId6);
             long asignaturaId6 = db.asignaturaDao().insert(asignatura6);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId6);
 
-            Asignatura asignatura7 = new Asignatura((int) cursoId, "Inglés", 3);
+            Asignatura asignatura7 = new Asignatura((int) cursoId, "Inglés", 3, (int) profesorId7);
             long asignaturaId7 = db.asignaturaDao().insert(asignatura7);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId7);
 
-            Asignatura asignatura8 = new Asignatura((int) cursoId, "Francés", 2);
+            Asignatura asignatura8 = new Asignatura((int) cursoId, "Francés", 2, (int) profesorId8);
             long asignaturaId8 = db.asignaturaDao().insert(asignatura8);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId8);
 
-            Asignatura asignatura9 = new Asignatura((int) cursoId, "Refuerzo/Lectura", 3);
+            Asignatura asignatura9 = new Asignatura((int) cursoId, "Refuerzo/Lectura", 3, (int) profesorId9);
             long asignaturaId9 = db.asignaturaDao().insert(asignatura9);
             Log.d("DB_TEST", "Asignatura creada con ID: " + asignaturaId9);
 
@@ -157,39 +157,39 @@ public class DatabaseEjemplo {
             // 4) INSERTAR ACTIVIDAD (TAREA)
             // -----------------------------------------
 
-            Actividad tarea1 = new Actividad((int) asignaturaId, (int) userId, "Redacción: Mi familia", "tarea", "2025-01-10");
+            Actividad tarea1 = new Actividad((int) asignaturaId, "Redacción: Mi familia", "tarea", "2025-01-10");
             long tareaId = db.actividadDao().insert(tarea1);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId);
 
-            Actividad tarea2 = new Actividad((int) asignaturaId2, (int) userId, "Ejercicios de fracciones", "tarea", "2025-01-12");
+            Actividad tarea2 = new Actividad((int) asignaturaId2, "Ejercicios de fracciones", "tarea", "2025-01-12");
             long tareaId2 = db.actividadDao().insert(tarea2);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId2);
 
-            Actividad tarea3 = new Actividad((int) asignaturaId3, (int) userId, "Mapa del sistema solar", "tarea", "2025-01-14");
+            Actividad tarea3 = new Actividad((int) asignaturaId3, "Mapa del sistema solar", "tarea", "2025-01-14");
             long tareaId3 = db.actividadDao().insert(tarea3);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId3);
 
-            Actividad tarea4 = new Actividad((int) asignaturaId4, (int) userId, "Resumen parábolas", "tarea", "2025-01-11");
+            Actividad tarea4 = new Actividad((int) asignaturaId4, "Resumen parábolas", "tarea", "2025-01-11");
             long tareaId4 = db.actividadDao().insert(tarea4);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId4);
 
-            Actividad tarea5 = new Actividad((int) asignaturaId5, (int) userId, "Circuito de resistencia", "tarea", "2025-01-09");
+            Actividad tarea5 = new Actividad((int) asignaturaId5, "Circuito de resistencia", "tarea", "2025-01-09");
             long tareaId5 = db.actividadDao().insert(tarea5);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId5);
 
-            Actividad tarea6 = new Actividad((int) asignaturaId6, (int) userId, "Aprender notas musicales", "tarea", "2025-01-13");
+            Actividad tarea6 = new Actividad((int) asignaturaId6, "Aprender notas musicales", "tarea", "2025-01-13");
             long tareaId6 = db.actividadDao().insert(tarea6);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId6);
 
-            Actividad tarea7 = new Actividad((int) asignaturaId7, (int) userId, "Worksheet: My Family", "tarea", "2025-01-15");
+            Actividad tarea7 = new Actividad((int) asignaturaId7, "Worksheet: My Family", "tarea", "2025-01-15");
             long tareaId7 = db.actividadDao().insert(tarea7);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId7);
 
-            Actividad tarea8 = new Actividad((int) asignaturaId8, (int) userId, "Fiche de vocabulaire", "tarea", "2025-01-16");
+            Actividad tarea8 = new Actividad((int) asignaturaId8, "Fiche de vocabulaire", "tarea", "2025-01-16");
             long tareaId8 = db.actividadDao().insert(tarea8);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId8);
 
-            Actividad tarea9 = new Actividad((int) asignaturaId9, (int) userId, "Lectura guiada capítulo 1", "tarea", "2025-01-17");
+            Actividad tarea9 = new Actividad((int) asignaturaId9, "Lectura guiada capítulo 1", "tarea", "2025-01-17");
             long tareaId9 = db.actividadDao().insert(tarea9);
             Log.d("DB_TEST", "Tarea creada con ID: " + tareaId9);
 
@@ -197,39 +197,39 @@ public class DatabaseEjemplo {
             // 5) INSERTAR ACTIVIDAD (EXAMEN)
             // -----------------------------------------
 
-            Actividad examen1 = new Actividad((int) asignaturaId, (int) userId, "Examen de ortografía", "examen", "2025-01-20");
+            Actividad examen1 = new Actividad((int) asignaturaId, "Examen de ortografía", "examen", "2025-01-20");
             long examenId = db.actividadDao().insert(examen1);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId);
 
-            Actividad examen2 = new Actividad((int) asignaturaId2, (int) userId, "Examen de multiplicaciones", "examen", "2025-01-22");
+            Actividad examen2 = new Actividad((int) asignaturaId2, "Examen de multiplicaciones", "examen", "2025-01-22");
             long examenId2 = db.actividadDao().insert(examen2);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId2);
 
-            Actividad examen3 = new Actividad((int) asignaturaId3, (int) userId, "Examen de los animales", "examen", "2025-01-25");
+            Actividad examen3 = new Actividad((int) asignaturaId3, "Examen de los animales", "examen", "2025-01-25");
             long examenId3 = db.actividadDao().insert(examen3);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId3);
 
-            Actividad examen4 = new Actividad((int) asignaturaId4, (int) userId, "Examen valores cristianos", "examen", "2025-01-21");
+            Actividad examen4 = new Actividad((int) asignaturaId4, "Examen valores cristianos", "examen", "2025-01-21");
             long examenId4 = db.actividadDao().insert(examen4);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId4);
 
-            Actividad examen5 = new Actividad((int) asignaturaId5, (int) userId, "Prueba de velocidad 50m", "examen", "2025-01-19");
+            Actividad examen5 = new Actividad((int) asignaturaId5, "Prueba de velocidad 50m", "examen", "2025-01-19");
             long examenId5 = db.actividadDao().insert(examen5);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId5);
 
-            Actividad examen6 = new Actividad((int) asignaturaId6, (int) userId, "Examen de ritmo básico", "examen", "2025-01-27");
+            Actividad examen6 = new Actividad((int) asignaturaId6, "Examen de ritmo básico", "examen", "2025-01-27");
             long examenId6 = db.actividadDao().insert(examen6);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId6);
 
-            Actividad examen7 = new Actividad((int) asignaturaId7, (int) userId, "Test: Verb to be", "examen", "2025-01-30");
+            Actividad examen7 = new Actividad((int) asignaturaId7, "Test: Verb to be", "examen", "2025-01-30");
             long examenId7 = db.actividadDao().insert(examen7);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId7);
 
-            Actividad examen8 = new Actividad((int) asignaturaId8, (int) userId, "Examen: Salutations", "examen", "2025-01-28");
+            Actividad examen8 = new Actividad((int) asignaturaId8, "Examen: Salutations", "examen", "2025-01-28");
             long examenId8 = db.actividadDao().insert(examen8);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId8);
 
-            Actividad examen9 = new Actividad((int) asignaturaId9, (int) userId, "Prueba de comprensión lectora", "examen", "2025-01-29");
+            Actividad examen9 = new Actividad((int) asignaturaId9, "Prueba de comprensión lectora", "examen", "2025-01-29");
             long examenId9 = db.actividadDao().insert(examen9);
             Log.d("DB_TEST", "Examen creado con ID: " + examenId9);
 

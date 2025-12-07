@@ -29,8 +29,8 @@ public interface ActividadDao {
     @Query("SELECT * FROM actividad WHERE id = :id")
     Actividad getById(int id);
 
-    @Query("SELECT * FROM actividad WHERE id_alumno = :idAlumno")
-    List<Actividad> getByAlumno(int idAlumno);
+//    @Query("SELECT * FROM actividad WHERE id_alumno = :idAlumno")
+//    List<Actividad> getByAlumno(int idAlumno);
 
     @Query("SELECT * FROM actividad WHERE id_asignatura = :idAsignatura")
     List<Actividad> getByAsignatura(int idAsignatura);

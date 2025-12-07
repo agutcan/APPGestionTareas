@@ -1,6 +1,7 @@
 package com.example.appgestiontareas.ui.fragments;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +12,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.database.AppDatabase;
+import com.example.appgestiontareas.ui.database.entidades.Actividad;
+import com.example.appgestiontareas.ui.database.entidades.Asignatura;
 import com.example.appgestiontareas.ui.utils.utils;
 
 import java.util.Date;
@@ -32,12 +37,19 @@ public class ActivityFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_activity, container, false);
     }
+    EditText inputAsignacion, inputEntrega, inputTitulo;
+    RadioGroup grupoTipo;
+    int idAsignatura, idProfesor;
+    private final static String FICHERO = "USER_PREFS";
+
+    String fechaEntrega;
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        EditText inputAsignacion = view.findViewById(R.id.inputAsignacion);
-        EditText inputEntrega = view.findViewById(R.id.inputEntrega);
+        inputAsignacion = view.findViewById(R.id.inputAsignacion);
+        inputEntrega = view.findViewById(R.id.inputEntrega);
 
         Calendar calendario = Calendar.getInstance();
 
@@ -76,34 +88,68 @@ public class ActivityFragment extends Fragment {
         });
 
         Button btnCrear = view.findViewById(R.id.btnCrear);
-        RadioGroup grupoTipo = view.findViewById(R.id.grupoTipo);
-        EditText inputDescripcion = view.findViewById(R.id.inputDescripcion);
+        grupoTipo = view.findViewById(R.id.grupoTipo);
+        inputTitulo = view.findViewById(R.id.inputTitulo);
 
         btnCrear.setOnClickListener(v -> {
 
-            // 1. Tipo seleccionado (Tarea o Examen)
-            int idSeleccionado = grupoTipo.getCheckedRadioButtonId();
-            String tipo = "";
-            if (idSeleccionado != -1) {
-                tipo = ((RadioButton) view.findViewById(idSeleccionado)).getText().toString().toLowerCase();
+            String fechaAsignacion = inputAsignacion.getText().toString().trim();
+            fechaEntrega = inputEntrega.getText().toString().trim();
+            String titulo = inputTitulo.getText().toString().trim();
+
+            int seleccionado = grupoTipo.getCheckedRadioButtonId();
+            String tipo = (seleccionado == R.id.rbTarea) ? "tarea" : "examen";
+
+            if (fechaAsignacion.isEmpty() || fechaEntrega.isEmpty()) {
+                Toast.makeText(getContext(), "Debe seleccionar ambas fechas", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            // 2. Fechas
-            String fechaAsignacion = inputAsignacion.getText().toString().trim();
-            String fechaEntrega = inputEntrega.getText().toString().trim();
-            String fechaAsignacionNormalizada = utils.normalizarFecha(fechaAsignacion);
-            String fechaEntregaNormalizada = utils.normalizarFecha(fechaEntrega);
-            // 3. Descripción
-            String descripcion = inputDescripcion.getText().toString().trim();
+            fechaAsignacion = utils.normalizarFecha(fechaAsignacion);
+            fechaEntrega = utils.normalizarFecha(fechaEntrega);
 
-            // -------- DEBUG - Mostrar los datos --------
-            Log.d("CREAR_ACTIVIDAD", "Tipo: " + tipo);
-            Log.d("CREAR_ACTIVIDAD", "Asignación: " + fechaAsignacionNormalizada);
-            Log.d("CREAR_ACTIVIDAD", "Entrega: " + fechaEntregaNormalizada);
-            Log.d("CREAR_ACTIVIDAD", "Descripción: " + descripcion);
+            idProfesor = requireActivity()
+                    .getSharedPreferences(FICHERO, Context.MODE_PRIVATE)
+                    .getInt("user_id", -1);
 
-            // Aquí ya puedes guardar en BD, enviar a API, etc.
+            // ----- TODO dentro del mismo hilo -----
+            new Thread(() -> {
+
+                AppDatabase db = AppDatabase.getInstance(getContext());
+
+                // Obtener asignatura del profesor
+                Asignatura asignatura = db.asignaturaDao().getAsignaturaPorProfesor(idProfesor);
+
+                if (asignatura == null) {
+                    Log.e("ActivityFragment", "ERROR: El profesor no tiene asignaturas asignadas");
+                    requireActivity().runOnUiThread(() ->
+                            Toast.makeText(getContext(), "No tienes asignaturas asignadas", Toast.LENGTH_SHORT).show()
+                    );
+                    return;
+                }
+
+                int idAsignatura = asignatura.getId();
+                Log.d("ActivityFragment", "Asignatura encontrada: " + idAsignatura);
+
+                // Crear actividad
+                Actividad actividad = new Actividad();
+                actividad.setId_asignatura(idAsignatura);
+                actividad.setTitulo(titulo);
+                actividad.setFecha_entrega(fechaEntrega);
+                actividad.setTipo(tipo);
+                actividad.setCreado_por(idProfesor);
+
+                long resultado = db.actividadDao().insert(actividad);
+
+                Log.d("ActivityFragment", "Actividad creada con ID: " + resultado);
+
+                requireActivity().runOnUiThread(() ->
+                        Toast.makeText(getContext(), "Actividad creada correctamente", Toast.LENGTH_SHORT).show()
+                );
+
+            }).start();
         });
+
 
 
 
