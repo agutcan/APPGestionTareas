@@ -56,35 +56,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Lunes" />
+            android:text="L" />
 
         <Button
             android:id="@+id/btnMartes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Martes" />
+            android:text="M" />
 
         <Button
             android:id="@+id/btnMiercoles"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Miércoles" />
+            android:text="X" />
 
         <Button
             android:id="@+id/btnJueves"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Jueves" />
+            android:text="J" />
 
         <Button
             android:id="@+id/btnViernes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Viernes" />
+            android:text="V" />
 
     </LinearLayout>
 

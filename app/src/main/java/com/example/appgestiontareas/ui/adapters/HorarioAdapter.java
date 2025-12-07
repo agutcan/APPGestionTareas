@@ -41,7 +41,7 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.Asignatu
         holder.txtProfesor.setText("Profesor: " + (nombreProfesor != null ? nombreProfesor : "Desconocido"));
 
         // Hora ficticia
-        holder.txtHora.setText("Hora: " + (8 + position) + ":00 - " + (9 + position) + ":00");
+        holder.txtHora.setText("Hora: " + (9 + position) + ":00 - " + (10 + position) + ":00");
     }
 
     @Override

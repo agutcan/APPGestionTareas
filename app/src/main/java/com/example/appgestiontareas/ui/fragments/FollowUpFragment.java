@@ -1,5 +1,6 @@
 package com.example.appgestiontareas.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.activities.Welfare;
 
 public class FollowUpFragment extends Fragment {
 
@@ -34,6 +36,14 @@ public class FollowUpFragment extends Fragment {
                     .replace(R.id.fragment_container, nuevoFragment)
                     .addToBackStack(null)
                     .commit();
+        });
+
+        Button btnBienestar = view.findViewById(R.id.btnBienestar);
+
+        btnBienestar.setOnClickListener(v -> {
+            // Aquí creamos el Intent para iniciar la Activity
+            Intent intent = new Intent(getActivity(), Welfare.class);
+            startActivity(intent);  // Lanzamos la Activity
         });
     }
 }
