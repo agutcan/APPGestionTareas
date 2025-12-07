@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.activities.ReportsActivity;
+import com.example.appgestiontareas.ui.activities.SettingsActivity;
 import com.example.appgestiontareas.ui.activities.Welfare;
 
 public class FollowUpFragment extends Fragment {
@@ -41,9 +44,21 @@ public class FollowUpFragment extends Fragment {
         Button btnBienestar = view.findViewById(R.id.btnBienestar);
 
         btnBienestar.setOnClickListener(v -> {
-            // Aquí creamos el Intent para iniciar la Activity
+
             Intent intent = new Intent(getActivity(), Welfare.class);
-            startActivity(intent);  // Lanzamos la Activity
+            startActivity(intent);
+        });
+
+        Button btnReportes = view.findViewById(R.id.btnReportes);
+        btnReportes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ReportsActivity.class);
+            startActivity(intent);
+        });
+
+        ImageButton btnAjustes = view.findViewById(R.id.ajustesBtn);
+        btnAjustes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
         });
     }
 }

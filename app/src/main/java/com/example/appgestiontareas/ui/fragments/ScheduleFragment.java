@@ -1,10 +1,12 @@
 package com.example.appgestiontareas.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.activities.SettingsActivity;
 import com.example.appgestiontareas.ui.adapters.HorarioAdapter;
 import com.example.appgestiontareas.ui.database.AppDatabase;
 import com.example.appgestiontareas.ui.database.entidades.Asignatura;
@@ -69,6 +72,12 @@ public class ScheduleFragment extends Fragment {
         btnMiercoles.setOnClickListener(v -> cargarDia("Miércoles"));
         btnJueves.setOnClickListener(v -> cargarDia("Jueves"));
         btnViernes.setOnClickListener(v -> cargarDia("Viernes"));
+
+        ImageButton btnAjustes = view.findViewById(R.id.ajustesBtn2);
+        btnAjustes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
+        });
 
 
     }
