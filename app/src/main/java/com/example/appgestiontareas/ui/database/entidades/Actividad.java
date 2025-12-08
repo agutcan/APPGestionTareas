@@ -40,9 +40,10 @@ public class Actividad {
     public Actividad() {}
 
     // Constructor con parámetros útil para tus ejemplos
-    public Actividad(int id_asignatura, String titulo, String tipo, String fecha_entrega) {
+    public Actividad(int id_asignatura, String titulo, String tipo, String fecha_entrega, int segundos_estimados) {
         this.id_asignatura = id_asignatura;
         //this.id_alumno = id_alumno;
+        this.segundos_estimados = segundos_estimados;
         this.titulo = titulo;
         this.tipo = tipo;
         this.fecha_entrega = fecha_entrega;
