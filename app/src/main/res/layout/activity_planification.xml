@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:text="Planificación"
+        android:text="@string/planificaci_n"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,7 @@
         android:id="@+id/crearActividadBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear Actividad"
+        android:text="@string/crear_actividad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.124"
@@ -52,7 +52,7 @@
         android:id="@+id/darTiempoBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dar Tiempo"
+        android:text="@string/dar_tiempo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.806"
@@ -76,7 +76,7 @@
             android:id="@+id/rbTarea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tarea" />
+            android:text="@string/tarea" />
 
         <View
             android:layout_width="0dp"
@@ -87,7 +87,7 @@
             android:id="@+id/rbExamen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Examen" />
+            android:text="@string/examen" />
 
     </RadioGroup>
 

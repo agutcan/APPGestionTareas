@@ -24,7 +24,7 @@
         android:id="@+id/text_home3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Historial de actividad"
+        android:text="@string/historial_de_actividad"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,14 +47,14 @@
             android:id="@+id/rbDar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dar" />
+            android:text="@string/dar" />
 
         <RadioButton
             android:id="@+id/rbLiberar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Liberar" />
+            android:text="@string/liberar" />
     </RadioGroup>
 
     <TextView
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Profesor (Opcional)"
+        android:text="@string/profesor_opcional"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroupAccion" />
@@ -82,7 +82,7 @@
         android:id="@+id/tvTiempoLibre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tiempo libre: --"
+        android:text="@string/tiempo_libre"
         android:textSize="15sp"
         android:textStyle="bold"
         android:layout_marginTop="12dp"
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Tiempo"
+        android:text="@string/tiempo"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTiempoLibre" />
@@ -117,7 +117,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
         android:background="#FFFFFF"
-        android:text="Confirmar"
+        android:text="@string/confirmar"
         android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/tvTiempo"
         app:layout_constraintStart_toStartOf="parent"

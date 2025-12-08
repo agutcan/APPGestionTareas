@@ -27,7 +27,7 @@
         android:id="@+id/text_home3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienestar"
+        android:text="@string/bienestar"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="Estado de ánimo"
+            android:text="@string/estado_de_nimo"
             android:textSize="20sp" />
 
         <Spinner
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="Horas de sueño"
+            android:text="@string/horas_de_sue_o"
             android:textSize="20sp" />
 
         <EditText
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:text="Notas (Opcional)"
+            android:text="@string/notas_opcional"
             android:textSize="20sp" />
 
         <EditText
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Enviar" />
+            android:text="@string/enviar" />
 
 
     </LinearLayout>
