@@ -2,6 +2,7 @@ package com.example.appgestiontareas.ui.fragments;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appgestiontareas.R;
+import com.example.appgestiontareas.ui.activities.SettingsActivity;
 import com.example.appgestiontareas.ui.database.AppDatabase;
 import com.example.appgestiontareas.ui.database.entidades.Actividad;
 import com.example.appgestiontareas.ui.database.entidades.Asignatura;
@@ -50,6 +53,12 @@ public class ActivityFragment extends Fragment {
 
         inputAsignacion = view.findViewById(R.id.inputAsignacion);
         inputEntrega = view.findViewById(R.id.inputEntrega);
+
+        ImageButton btnAjustes = view.findViewById(R.id.ajustesBtn3);
+        btnAjustes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
+        });
 
         Calendar calendario = Calendar.getInstance();
 

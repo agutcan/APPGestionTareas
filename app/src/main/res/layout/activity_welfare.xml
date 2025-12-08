@@ -27,7 +27,7 @@
         android:id="@+id/text_home3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HORARIO"
+        android:text="Bienestar"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
