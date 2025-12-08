@@ -47,17 +47,6 @@ public class HomeFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }));
 
-        //        ASI SE CAMBIA DE FRAGMENT        //
-
-        Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
-        btnCambiar.setOnClickListener(v -> {
-            Fragment nuevoFragment = new TimeFragment();
-            getParentFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, nuevoFragment)
-                    .addToBackStack(null)
-                    .commit();
-        });
 
         ImageButton btnAjustes = view.findViewById(R.id.ajustesBtn);
         btnAjustes.setOnClickListener(v -> {

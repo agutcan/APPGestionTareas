@@ -80,7 +80,7 @@ public class CalendarFragment extends Fragment {
         ajustesBtn = view.findViewById(R.id.ajustesBtn);
         darTiempoBtn.setOnClickListener(v ->navegarDarTiempo());
         ajustesBtn.setOnClickListener(v -> navegarAjustes());
-
+        crearActividadBtn.setOnClickListener(v -> navegarActividad());
         cambiarEstadoBotones();
         marcarTareasExamenes();
     }
@@ -244,6 +244,14 @@ public class CalendarFragment extends Fragment {
         startActivity(new Intent(getActivity(), SettingsActivity.class));
     }
 
+    private void navegarActividad() {
+        Fragment nuevoFragment = new ActivityFragment();
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, nuevoFragment)
+                .addToBackStack(null)
+                .commit();
+    }
     private void navegarDarTiempo() {
         Fragment nuevoFragment = new TimeFragment();
         getParentFragmentManager()
