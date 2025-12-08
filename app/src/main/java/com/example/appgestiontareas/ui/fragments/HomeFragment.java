@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
 
         Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
         btnCambiar.setOnClickListener(v -> {
-            Fragment nuevoFragment = new ActivityFragment();
+            Fragment nuevoFragment = new TimeFragment();
             getParentFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container, nuevoFragment)

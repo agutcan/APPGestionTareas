@@ -98,6 +98,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelAsignacion" />
 
+    <TextView
+        android:id="@+id/labelTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:text="@string/tiempo_estimado_h"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelAsignacion" />
+
     <EditText
         android:id="@+id/inputEntrega"
         android:layout_width="200dp"
@@ -110,18 +121,28 @@
         app:layout_constraintTop_toTopOf="@+id/labelEntrega"
         app:layout_constraintStart_toEndOf="@+id/labelEntrega"/>
 
-    <!-- Descripción label -->
 
-    <!-- Descripción input -->
-
-    <!-- Botón Crear -->
+    <EditText
+        android:id="@+id/inputTiempo"
+        android:layout_width="183dp"
+        android:layout_height="41dp"
+        android:background="@android:drawable/edit_text"
+        android:gravity="top|start"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toEndOf="@+id/labelTiempo"
+        app:layout_constraintTop_toBottomOf="@+id/inputEntrega"
+        app:layout_constraintVertical_bias="0.048" />
 
     <TextView
         android:id="@+id/labelTitulo"
         android:layout_width="67dp"
         android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
         android:text="@string/titulo"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,10 +158,10 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.668"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEntrega"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <Button
         android:id="@+id/btnCrear"

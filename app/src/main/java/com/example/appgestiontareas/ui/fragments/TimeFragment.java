@@ -177,6 +177,18 @@ public class TimeFragment extends Fragment {
                     profesorSeleccionado.equals("Sin profesor") ? -1 :
                             mapaProfesores.get(profesorSeleccionado);
 
+            int tiempoActual = usuarioDao.obtenerTiempo(idLogueado);
+
+            if (tiempoInt > tiempoActual) {
+                Log.d("TransferenciaTiempo", "Error: tiempo insuficiente. Tiempo disponible: " + tiempoActual + ", intentado dar: " + tiempoInt);
+                requireActivity().runOnUiThread(() ->
+                        Toast.makeText(getContext(),
+                                "No tienes suficiente tiempo para dar",
+                                Toast.LENGTH_SHORT).show()
+                );
+                return;
+            }
+
             if (accion.equals("Dar")) {
 
                 int tiempoOrigen = usuarioDao.obtenerTiempo(idLogueado);
@@ -220,7 +232,7 @@ public class TimeFragment extends Fragment {
             }
 
             if (accion.equals("Liberar")) {
-                int tiempoActual = usuarioDao.obtenerTiempo(idLogueado);
+                tiempoActual = usuarioDao.obtenerTiempo(idLogueado);
                 int nuevoTiempo = tiempoActual - tiempoInt; // Restar tiempo al profesor logueado
                 usuarioDao.actualizarTiempo(idLogueado, nuevoTiempo);
 
