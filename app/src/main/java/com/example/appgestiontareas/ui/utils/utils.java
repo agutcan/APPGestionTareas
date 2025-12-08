@@ -2,6 +2,10 @@ package com.example.appgestiontareas.ui.utils;
 
 import android.icu.util.Calendar;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class utils {
@@ -10,12 +14,12 @@ public class utils {
         return text.substring(0, 1).toUpperCase() + text.substring(1);
     }
 
-    public static Date convertirFecha(String fecha) {
+    public static CalendarDay convertirFecha(String fecha) {
         String[] partes = fecha.split("[-/]");
         int year = Integer.parseInt(partes[0]);
         int month = Integer.parseInt(partes[1]) - 1;
         int day = Integer.parseInt(partes[2]);
-        return new Date(year, month, day);
+        return CalendarDay.from(year, month, day);
     }
 
     public static String normalizarFecha(String fecha) {

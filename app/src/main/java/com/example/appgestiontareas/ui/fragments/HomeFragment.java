@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }));
 
-//        ASI SE CAMBIA DE FRAGMENT        //
+        //        ASI SE CAMBIA DE FRAGMENT        //
 
         Button btnCambiar = view.findViewById(R.id.btnCambiarFragment);
         btnCambiar.setOnClickListener(v -> {
