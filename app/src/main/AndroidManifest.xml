@@ -17,9 +17,7 @@
         <activity
             android:name=".ui.activities.Welfare"
             android:exported="false" />
-        <activity
-            android:name=".ui.activities.PlanificationActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.activities.SettingsActivity"
             android:exported="false" />
@@ -31,6 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.activities.MainActivity"
