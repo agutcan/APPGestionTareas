@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.appgestiontareas.R;
 import com.example.appgestiontareas.ui.activities.ReportsActivity;
 import com.example.appgestiontareas.ui.activities.SettingsActivity;
-import com.example.appgestiontareas.ui.activities.Welfare;
+import com.example.appgestiontareas.ui.activities.WelfareActivity;
 
 public class FollowUpFragment extends Fragment {
 
@@ -45,7 +45,7 @@ public class FollowUpFragment extends Fragment {
 
         btnBienestar.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getActivity(), Welfare.class);
+            Intent intent = new Intent(getActivity(), WelfareActivity.class);
             startActivity(intent);
         });
 
