@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.ReportsActivity">
+    tools:context=".ui.activities.ReportsActivity"
+    android:background="@color/lightGreen">
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

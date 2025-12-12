@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ActivityFragment">
+    tools:context=".ui.fragments.ActivityFragment"
+    android:background="@color/lightGreen">
 
     <TextView
         android:id="@+id/text_home2"
