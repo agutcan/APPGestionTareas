@@ -27,7 +27,7 @@ public class HorarioAdapter extends RecyclerView.Adapter<HorarioAdapter.Asignatu
     @Override
     public AsignaturaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_horario, parent, false);
+                .inflate(R.layout.item_schedule, parent, false);
         return new AsignaturaViewHolder(view);
     }
 

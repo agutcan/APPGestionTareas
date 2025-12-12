@@ -15,7 +15,7 @@
             android:name=".ui.activities.ReportsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.Welfare"
+            android:name=".ui.activities.WelfareActivity"
             android:exported="false" />
 
         <activity

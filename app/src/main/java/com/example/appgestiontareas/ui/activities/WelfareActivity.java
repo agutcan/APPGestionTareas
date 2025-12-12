@@ -12,9 +12,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appgestiontareas.R;
 
@@ -22,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Welfare extends AppCompatActivity {
+public class WelfareActivity extends AppCompatActivity {
     private Spinner spinnerEstado;
     private EditText editHoras, editNotas;
     private Button btnEnviar;
