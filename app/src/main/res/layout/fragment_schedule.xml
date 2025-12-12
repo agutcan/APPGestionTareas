@@ -57,35 +57,40 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/l" />
+            android:text="@string/l"
+            android:backgroundTint="@color/darkGreen"/>
 
         <Button
             android:id="@+id/btnMartes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/m" />
+            android:text="@string/m"
+            android:backgroundTint="@color/darkGreen"/>
 
         <Button
             android:id="@+id/btnMiercoles"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/x" />
+            android:text="@string/x"
+            android:backgroundTint="@color/darkGreen"/>
 
         <Button
             android:id="@+id/btnJueves"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/j" />
+            android:text="@string/j"
+            android:backgroundTint="@color/darkGreen"/>
 
         <Button
             android:id="@+id/btnViernes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/v" />
+            android:text="@string/v"
+            android:backgroundTint="@color/darkGreen"/>
 
     </LinearLayout>
 
