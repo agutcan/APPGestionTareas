@@ -8,3 +8,7 @@
 
 ## Documentación: (Realizada con deepwiki)
 - [Documentacion](https://deepwiki.com/agutcan/APPGestionTareas/)
+
+## Xtiles
+
+![xtiles](xtiles.png)
